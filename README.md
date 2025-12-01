@@ -11,12 +11,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Register Page',
-      debugShowCheckedModeBanner: false, // Supprime le bandeau debug
+      debugShowCheckedModeBanner: false, 
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF282D5B)),
         useMaterial3: true,
       ),
-      home: const RegisterPage(), // Page d'inscription
+      home: const RegisterPage(), 
     );
   }
 }
@@ -32,23 +32,22 @@ class _RegisterPageState extends State<RegisterPage> {
   // Key pour gérer la validation du formulaire
   final _formKey = GlobalKey<FormState>();
 
-  // Controllers des champs
+ 
   final nomController = TextEditingController();
   final emailController = TextEditingController();
   final phoneController = TextEditingController();
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
 
-  // États pour afficher/cacher le mot de passe
+
   bool hidePassword = true;
   bool hideConfirmPassword = true;
 
-  // Couleur principale
+
   final Color mainColor = const Color(0xFF282D5B);
 
   @override
   void dispose() {
-    // Libération des controllers pour éviter les fuites mémoire
     nomController.dispose();
     emailController.dispose();
     phoneController.dispose();
@@ -60,7 +59,7 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[100], // Couleur de fond de la page
+      backgroundColor: Colors.grey[100], 
       appBar: AppBar(
         title: const Text(
           "Inscription",
@@ -70,19 +69,19 @@ class _RegisterPageState extends State<RegisterPage> {
           ),
         ),
         centerTitle: true,
-        backgroundColor: mainColor, // Couleur de l'AppBar
-        foregroundColor: Colors.white, // Couleur du texte dans l'AppBar
+        backgroundColor: mainColor,
+        foregroundColor: Colors.white, 
       ),
 
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(20), // Padding général
+        padding: const EdgeInsets.all(20), 
         child: Form(
           key: _formKey, // Activation de la validation
           child: Column(
             children: [
               const SizedBox(height: 20),
 
-              // Logo/Image en haut de la page
+         
               Center(
                 child: Image.asset(
                   'assets/images/logo.png',
@@ -106,7 +105,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
               const SizedBox(height: 30),
 
-              // Champ : Nom complet
+     
               TextFormField(
                 controller: nomController,
                 decoration: InputDecoration(
@@ -129,7 +128,6 @@ class _RegisterPageState extends State<RegisterPage> {
 
               const SizedBox(height: 15),
 
-              // Champ : Email
               TextFormField(
                 controller: emailController,
                 decoration: InputDecoration(
@@ -156,7 +154,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
               const SizedBox(height: 15),
 
-              // Champ : Téléphone
+         
               TextFormField(
                 controller: phoneController,
                 decoration: InputDecoration(
@@ -180,7 +178,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
               const SizedBox(height: 15),
 
-              // Champ : Mot de passe avec affichage/caché
+        
               TextFormField(
                 controller: passwordController,
                 obscureText: hidePassword, 
@@ -194,7 +192,6 @@ class _RegisterPageState extends State<RegisterPage> {
                       color: mainColor,
                     ),
                     onPressed: () {
-                      // Changer l’état d’affichage du mot de passe
                       setState(() {
                         hidePassword = !hidePassword;
                       });
@@ -219,7 +216,6 @@ class _RegisterPageState extends State<RegisterPage> {
 
               const SizedBox(height: 15),
 
-              // Champ : Confirmation mot de passe
               TextFormField(
                 controller: confirmPasswordController,
                 obscureText: hideConfirmPassword,
@@ -234,7 +230,6 @@ class _RegisterPageState extends State<RegisterPage> {
                       color: mainColor,
                     ),
                     onPressed: () {
-                      // Changer l’état d’affichage
                       setState(() {
                         hideConfirmPassword = !hideConfirmPassword;
                       });
@@ -259,7 +254,6 @@ class _RegisterPageState extends State<RegisterPage> {
 
               const SizedBox(height: 30),
 
-              // Bouton : S'inscrire
               SizedBox(
                 width: double.infinity,
                 height: 50,
@@ -294,7 +288,6 @@ class _RegisterPageState extends State<RegisterPage> {
 
               const SizedBox(height: 20),
 
-              // Bouton : se connecter
               TextButton(
                 onPressed: () {
                   print('Clic sur "Déjà inscrit ? Se connecter"');
